@@ -11,7 +11,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
     """
     queryset = Question.objects.all().order_by('-pub_date')
     serializer_class = QuestionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
     lookup_field = 'pk'
 
     # recuperar as choices de uma question
@@ -28,7 +28,7 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     """
     queryset = Choice.objects.all().order_by('-votes')
     serializer_class = ChoiceSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAuthenticated]
     lookup_field = 'pk'
 
     @action(detail=True, methods=['post'])
