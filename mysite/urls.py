@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include 
 from django.conf import settings
+from django.views.generic import RedirectView
+
 urlpatterns = [
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
+    path('', RedirectView.as_view(url='/polls/')),
 ]
 
 if settings.DEBUG:
